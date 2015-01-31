@@ -1,0 +1,54 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "framework": {
+                "parents": {
+                    "AssetsLibrary.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "MobileCoreServices.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "MediaPlayer.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"EAAssetPicker\"><param name=\"ios-package\" value=\"EAAssetPicker\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "ar.com.ezequielaceto.assetspicker": {
+            "PACKAGE_NAME": "ar.com.ezequielaceto.assetspicker"
+        }
+    },
+    "dependent_plugins": {}
+}

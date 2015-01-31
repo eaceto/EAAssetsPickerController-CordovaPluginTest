@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="ar.com.ezequielaceto.assetspicker"
+    version="0.0.1">
+    
+    <name>EAAssetPicker</name>
+    
+    <description>
+        This plugin allows selection of multiple assets from the camera roll / gallery in a cordova app
+    </description>
+    <author>Ezequiel Aceto</author>
+    <license>MIT</license>
+    
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    
+    <js-module src="www/assetspicker.js" name="EAAssetPicker">
+        <clobbers target="plugins.assetPicker" />
+    </js-module>
+    
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ImagePicker">
+                <param name="ios-package" value="EAAssetPicker"/>
+            </feature>
+        </config-file>
+        
+        <header-file src="src/ios/EAAssetPicker.h" />
+        <source-file src="src/ios/EAAssetPicker.m" />
+        
+        <header-file src="src/ios/src/ALAsset+accessibilityLabel.h" />
+        <source-file src="src/ios/src/ALAsset+accessibilityLabel.m" />
+        
+        <header-file src="src/ios/src/ALAsset+assetType.h" />
+        <source-file src="src/ios/src/ALAsset+assetType.m" />
+        
+        <header-file src="src/ios/src/ALAsset+isEqual.h" />
+        <source-file src="src/ios/src/ALAsset+isEqual.m" />
+        
+        <header-file src="src/ios/src/ALAssetsGroup+isEqual.h" />
+        <source-file src="src/ios/src/ALAssetsGroup+isEqual.m" />
+        
+        <header-file src="src/ios/src/CTAssetItemViewController.h" />
+        <source-file src="src/ios/src/CTAssetItemViewController.m" />
+        
+        <header-file src="src/ios/src/CTAssetScrollView.h" />
+        <source-file src="src/ios/src/CTAssetScrollView.m" />
+        
+        <header-file src="src/ios/src/CTAssetsGroupViewCell.h" />
+        <source-file src="src/ios/src/CTAssetsGroupViewCell.m" />
+        
+        <header-file src="src/ios/src/CTAssetsGroupViewController.h" />
+        <source-file src="src/ios/src/CTAssetsGroupViewController.m" />
+        
+        <header-file src="src/ios/src/CTAssetsPageViewController.h" />
+        <source-file src="src/ios/src/CTAssetsPageViewController.m" />
+        
+        <header-file src="src/ios/src/CTAssetsPickerCommon.h" />
+        
+        <header-file src="src/ios/src/CTAssetsPickerController.h" />
+        <source-file src="src/ios/src/CTAssetsPickerController.m" />
+        
+        <header-file src="src/ios/src/CTAssetsSupplementaryView.h" />
+        <source-file src="src/ios/src/CTAssetsSupplementaryView.m" />
+        
+        <header-file src="src/ios/src/CTAssetsViewCell.h" />
+        <source-file src="src/ios/src/CTAssetsViewCell.m" />
+        
+        <header-file src="src/ios/src/CTAssetsViewControllerTransition.h" />
+        <source-file src="src/ios/src/CTAssetsViewControllerTransition.m" />
+        
+        <header-file src="src/ios/src/EAAssetPickerHelper.h" />
+        <source-file src="src/ios/src/EAAssetPickerHelper.m" />
+        
+        <header-file src="src/ios/src/EAAssetsViewController.h" />
+        <source-file src="src/ios/src/EAAssetsViewController.m" />
+        
+        <header-file src="src/ios/src/NSDateFormatter+timeIntervalFormatter.h" />
+        <source-file src="src/ios/src/NSDateFormatter+timeIntervalFormatter.m" />
+        
+        <resource-file src="src/ios/Images.xcassets" />
+        <resource-file src="src/ios/photo_camera_icon.png" />
+        <resource-file src="src/ios/photo_camera_icon@2x.png" />
+        <resource-file src="src/ios/video_camera_icon.png" />
+        <resource-file src="src/ios/video_camera_icon@2x.png" />
+        
+    </platform>
+    
+</plugin>
