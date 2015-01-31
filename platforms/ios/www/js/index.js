@@ -36,9 +36,14 @@ var app = {
         app.receivedEvent('deviceready');
         
         
+        var params = {
+            MaxNumberOfAssetsToPick: 10,
+            MaxVideoLengthInSeconds: 360
+        };
+        
         cordova.exec(function(results) {
                      alert("Done picking. " + JSON.stringify(results));
-        },null,"EAAssetPicker","pickAssets",null);
+        },null,"EAAssetPicker","pickAssets",[params]);
         
     },
     // Update DOM on a Received Event
