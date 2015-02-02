@@ -36,15 +36,7 @@ var app = {
         app.receivedEvent('deviceready');
         
         
-        var params = {
-            MaxNumberOfAssetsToPick: 10,
-            MaxVideoLengthInSeconds: 360
-        };
-        
-        cordova.exec(function(results) {
-                     alert("Done picking. " + JSON.stringify(results));
-        },null,"EAAssetPicker","pickAssets",[params]);
-        
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -58,5 +50,17 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+
+function openGallery() {
+    var params = {
+    MaxNumberOfAssetsToPick: 10,
+    MaxVideoLengthInSeconds: 360
+    };
+    
+    cordova.exec(function(results) {
+                 alert("Done picking. " + JSON.stringify(results));
+                 },null,"EAAssetPicker","pickAssets",[params]);
+}
 
 app.initialize();
