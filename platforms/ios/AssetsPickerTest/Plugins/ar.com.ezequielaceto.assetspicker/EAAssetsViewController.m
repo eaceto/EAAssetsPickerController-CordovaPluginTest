@@ -32,6 +32,7 @@
 #import "CTAssetsSupplementaryView.h"
 #import "CTAssetsPageViewController.h"
 #import "CTAssetsViewControllerTransition.h"
+#import "EAAssetPickerHelper.h"
 
 NSString * const CTAssetsViewControllerRecordVideoTag = @"kRecordVideoTag";
 NSString * const CTAssetsViewControllerTakePictureTag = @"kTakePictureTag";
@@ -456,7 +457,7 @@ BOOL const allowsMultipleSelection = YES;
             canTakePhoto = [self.picker.delegate assetsPickerController:self.picker shouldSelectAsset:nil];
         
         if (canTakePhoto) {
-            //KIMI IMPLEMENT [MainViewHelper takePhoto:self withDelegate:self];
+            [EAAssetPickerHelper takePhoto:self withDelegate:self];
         }
         return NO;
     }
@@ -466,7 +467,7 @@ BOOL const allowsMultipleSelection = YES;
             canRecordVideo = [self.picker.delegate assetsPickerController:self.picker shouldSelectAsset:nil];
         
         if (canRecordVideo) {
-            //KIMI IMPLEMENT [MainViewHelper recordVideo:self withDelegate:self];
+            [EAAssetPickerHelper recordVideo:self withDelegate:self];
         }
         return NO;
     }
