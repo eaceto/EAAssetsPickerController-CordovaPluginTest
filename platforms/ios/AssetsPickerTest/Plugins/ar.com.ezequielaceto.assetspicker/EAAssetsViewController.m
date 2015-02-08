@@ -24,7 +24,7 @@
  THE SOFTWARE.
  
  */
-
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "CTAssetsPickerCommon.h"
 #import "CTAssetsPickerController.h"
 #import "EAAssetsViewController.h"
@@ -33,6 +33,7 @@
 #import "CTAssetsPageViewController.h"
 #import "CTAssetsViewControllerTransition.h"
 #import "EAAssetPickerHelper.h"
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 
 NSString * const CTAssetsViewControllerRecordVideoTag = @"kRecordVideoTag";
 NSString * const CTAssetsViewControllerTakePictureTag = @"kTakePictureTag";
@@ -165,12 +166,12 @@ BOOL const allowsMultipleSelection = YES;
     if (!self.assets)
         self.assets = [[NSMutableArray alloc] init];
     else
-        return;
+        [self.assets removeAllObjects]; // return;
     
     // Add take picture and record video
     {
-        [self.assets addObject:CTAssetsViewControllerTakePictureTag];
-        [self.assets addObject:CTAssetsViewControllerRecordVideoTag];
+    //    [self.assets addObject:CTAssetsViewControllerTakePictureTag];
+    //    [self.assets addObject:CTAssetsViewControllerRecordVideoTag];
     }
     
     ALAssetsGroupEnumerationResultsBlock resultsBlock = ^(ALAsset *asset, NSUInteger index, BOOL *stop)
@@ -189,6 +190,27 @@ BOOL const allowsMultipleSelection = YES;
         }
         else
         {
+            NSArray* a = [self.assets sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
+                if (obj1 && obj2) {
+                    ALAsset* a1 = (ALAsset*)obj1;
+                    ALAsset* a2 = (ALAsset*)obj2;
+                    
+                    NSDate* d1 = [a1 valueForProperty:ALAssetPropertyDate];
+                    NSDate* d2 = [a2 valueForProperty:ALAssetPropertyDate];
+                    
+                    if (d1 && d2 == nil) return NSOrderedDescending;
+                    if (d2 && d1 == nil) return NSOrderedAscending;
+                    if ([d1 compare:d2] == NSOrderedAscending) return NSOrderedDescending;
+                    if ([d1 compare:d2] == NSOrderedDescending) return NSOrderedAscending;
+                }
+                return NSOrderedSame;
+            }];
+            
+            [self.assets removeAllObjects];
+            [self.assets addObject:CTAssetsViewControllerTakePictureTag];
+            [self.assets addObject:CTAssetsViewControllerRecordVideoTag];
+            [self.assets addObjectsFromArray:a];
+            
             [self reloadData];
         }
     };
@@ -310,10 +332,10 @@ BOOL const allowsMultipleSelection = YES;
     {
         CGPoint point           = [longPress locationInView:self.collectionView];
         NSIndexPath *indexPath  = [self.collectionView indexPathForItemAtPoint:point];
-
+        
         CTAssetsPageViewController *vc = [[CTAssetsPageViewController alloc] initWithAssets:self.assets];
         vc.pageIndex = indexPath.item;
-
+        
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -339,9 +361,9 @@ BOOL const allowsMultipleSelection = YES;
         [self.collectionView reloadData];
         
         /*
-        if (self.collectionView.contentOffset.y <= 0)
-            [self.collectionView setContentOffset:CGPointMake(0, self.collectionViewLayout.collectionViewContentSize.height)];
-        */
+         if (self.collectionView.contentOffset.y <= 0)
+         [self.collectionView setContentOffset:CGPointMake(0, self.collectionViewLayout.collectionViewContentSize.height)];
+         */
     }
     else
     {
@@ -393,15 +415,15 @@ BOOL const allowsMultipleSelection = YES;
     else {
         CTAssetsViewCell *cell =
         [collectionView dequeueReusableCellWithReuseIdentifier:CTAssetsViewCellIdentifier
-                                              forIndexPath:indexPath];
-    
+                                                  forIndexPath:indexPath];
+        
         ALAsset *asset = [self.assets objectAtIndex:indexPath.row];
-    
+        
         if ([self.picker.delegate respondsToSelector:@selector(assetsPickerController:shouldEnableAsset:)])
             cell.enabled = [self.picker.delegate assetsPickerController:self.picker shouldEnableAsset:asset];
         else
             cell.enabled = YES;
-    
+        
         // XXX
         // Setting `selected` property blocks further deselection.
         // Have to call selectItemAtIndexPath too. ( ref: http://stackoverflow.com/a/17812116/1648333 )
@@ -410,9 +432,9 @@ BOOL const allowsMultipleSelection = YES;
             cell.selected = YES;
             [collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         }
-    
+        
         [cell bind:asset];
-    
+        
         return cell;
     }
 }
@@ -438,7 +460,63 @@ BOOL const allowsMultipleSelection = YES;
     
     BOOL shouldDismiss = YES;
     if (info != nil) {
-        // shouldDismiss = [MainViewHelper base:self picker:picker didFinishPickingMediaWithInfo:info];
+        
+        NSString* mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+        
+        if (mediaType != nil && [mediaType compare:(NSString*)kUTTypeImage] == NSOrderedSame) {
+            // grabar imagen
+            UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
+            
+            if (image != nil) {
+                /*
+                 NSNumber *timestamp = [NSNumber numberWithDouble:[NSDate timeIntervalSinceReferenceDate]];
+                 NSString  *pngPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/pictureTakenFromCamera%li.png",(long)[timestamp integerValue]]];
+                 
+                 // Write image to PNG
+                 NSData* jpegData = UIImageJPEGRepresentation(image, 1.0);
+                 
+                 BOOL written = [jpegData writeToFile:pngPath atomically:YES];
+                 
+                 if (written == YES && pngPath != nil) {
+                 }
+                 */
+                ALAssetsLibrary* lib = [[ALAssetsLibrary alloc] init];
+                
+                shouldDismiss = NO;
+                
+                __weak UIViewController* weakPicker = picker;
+
+                [lib writeImageToSavedPhotosAlbum:image.CGImage orientation:(ALAssetOrientation)image.imageOrientation
+                                   completionBlock:^(NSURL* assetURL, NSError* error) {
+                                       
+                                          //then get the image asseturl
+                                          [lib assetForURL:assetURL
+                                               resultBlock:^(ALAsset *asset) {
+                                                   [self.assetsGroup addAsset:asset];
+                                                   [weakPicker dismissViewControllerAnimated:YES completion:^(){}];
+                                               } failureBlock:^(NSError *error) {
+                                            [weakPicker dismissViewControllerAnimated:YES completion:^(){}];
+                                               }];
+                                      }];
+                
+            }
+        }
+        else if (mediaType != nil && (([mediaType compare:(NSString*)kUTTypeVideo] == NSOrderedSame) || ([mediaType compare:(NSString*)kUTTypeMovie] == NSOrderedSame))){
+            // grabar el video
+            //NSString *moviePath = [[info objectForKey: UIImagePickerControllerMediaURL] path];
+            NSURL *imagePickerURL = [info objectForKey: UIImagePickerControllerMediaURL];
+            NSString* moviePath = [imagePickerURL path];
+            
+            /*
+             if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+             if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum (moviePath)) {
+             UISaveVideoAtPathToSavedPhotosAlbum(moviePath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
+             }
+             }
+             else {
+             [MainViewHelper video:moviePath didFinishSavingWithError:nil contextInfo:nil];
+             }*/
+        }
     }
     
     if (shouldDismiss) {

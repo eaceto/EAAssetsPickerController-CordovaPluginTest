@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0B0396A7098048BB85F5CDAA /* NSDateFormatter+timeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8301C802C4174A7282E75771 /* NSDateFormatter+timeIntervalFormatter.m */; };
 		1B077C47D9D1419D8CFF2E28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51465C6D4724678835C46D9 /* Images.xcassets */; };
@@ -44,6 +45,7 @@
 		3F0A2CD41A7C6DEF00E737F6 /* CTAssetsViewControllerTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE6CEBE02A64747AA12C4C6 /* CTAssetsViewControllerTransition.m */; };
 		3F0A2CD51A7C6DEF00E737F6 /* EAAssetPickerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F390030E1647268499CF61 /* EAAssetPickerHelper.m */; };
 		3F0A2CD61A7C6DEF00E737F6 /* EAAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE7A098229416883B96AEF /* EAAssetsViewController.m */; };
+		3FFDB8451A879DF200F5C98A /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDB8441A879DF200F5C98A /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		565AC9B026924B9F85022A22 /* video_camera_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 650AB551E55F459795E5C338 /* video_camera_icon.png */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
 		6ACD478836E0493FA8C889B4 /* photo_camera_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D49B053540F4811A8035617 /* photo_camera_icon@2x.png */; };
@@ -118,6 +120,8 @@
 		32CA4F630368D1EE00C91783 /* AssetsPickerTest-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AssetsPickerTest-Prefix.pch"; sourceTree = "<group>"; };
 		3BBE7A098229416883B96AEF /* EAAssetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EAAssetsViewController.m; path = ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m; sourceTree = "<group>"; };
 		3F0A2CC71A7C39E200E737F6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		3FFDB8431A879DF200F5C98A /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		3FFDB8441A879DF200F5C98A /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		55476D6E8BF64735BB69B2F6 /* video_camera_icon@2x.png */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; path = "video_camera_icon@2x.png"; sourceTree = "<group>"; };
 		57AAB460107C4255BE73F7A9 /* CTAssetsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTAssetsPageViewController.m; path = ar.com.ezequielaceto.assetspicker/CTAssetsPageViewController.m; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -286,6 +290,8 @@
 				2A2123D8B8AA43EE84F80DA5 /* CTAssetsViewCell.m */,
 				9FE6CEBE02A64747AA12C4C6 /* CTAssetsViewControllerTransition.m */,
 				84F390030E1647268499CF61 /* EAAssetPickerHelper.m */,
+				3FFDB8431A879DF200F5C98A /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				3FFDB8441A879DF200F5C98A /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 				3BBE7A098229416883B96AEF /* EAAssetsViewController.m */,
 				8DB90BA06C9E4E73A2582AFC /* EAAssetPicker.h */,
 				6AD7A3A1C5D54DA1AF07CEF8 /* CTAssetItemViewController.h */,
@@ -510,6 +516,7 @@
 				0B0396A7098048BB85F5CDAA /* NSDateFormatter+timeIntervalFormatter.m in Sources */,
 				3F0A2CCF1A7C6DEF00E737F6 /* CTAssetsGroupViewController.m in Sources */,
 				3F0A2CD01A7C6DEF00E737F6 /* CTAssetsPageViewController.m in Sources */,
+				3FFDB8451A879DF200F5C98A /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				3F0A2CD11A7C6DEF00E737F6 /* CTAssetsPickerController.m in Sources */,
 				3F0A2CD21A7C6DEF00E737F6 /* CTAssetsSupplementaryView.m in Sources */,
 				3F0A2CD31A7C6DEF00E737F6 /* CTAssetsViewCell.m in Sources */,
