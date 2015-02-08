@@ -56,6 +56,7 @@
     }
 }
 
+/*
 + (BOOL)base:(UIViewController*)baseVC picker:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSString* mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     
@@ -96,6 +97,7 @@
     
     return dismissPicker;
 }
+*/
 
 + (void)video:(NSString *) videoPath didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
     

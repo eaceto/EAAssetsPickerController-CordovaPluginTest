@@ -507,6 +507,24 @@ BOOL const allowsMultipleSelection = YES;
             NSURL *imagePickerURL = [info objectForKey: UIImagePickerControllerMediaURL];
             NSString* moviePath = [imagePickerURL path];
             
+            ALAssetsLibrary* lib = [[ALAssetsLibrary alloc] init];
+            
+            shouldDismiss = NO;
+            
+            __weak UIViewController* weakPicker = picker;
+
+            [lib writeVideoAtPathToSavedPhotosAlbum:imagePickerURL completionBlock:^(NSURL* assetURL, NSError* error){
+                //then get the image asseturl
+                [lib assetForURL:assetURL
+                     resultBlock:^(ALAsset *asset) {
+                         [self.assetsGroup addAsset:asset];
+                         [weakPicker dismissViewControllerAnimated:YES completion:^(){}];
+                     } failureBlock:^(NSError *error) {
+                         [weakPicker dismissViewControllerAnimated:YES completion:^(){}];
+                     }];
+            }];
+            
+            
             /*
              if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
              if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum (moviePath)) {
