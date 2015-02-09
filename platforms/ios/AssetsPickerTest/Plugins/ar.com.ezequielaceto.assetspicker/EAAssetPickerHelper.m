@@ -79,11 +79,19 @@
     if (selectedAssets == nil) selectedAssets = [[NSMutableArray alloc] init];
     
     CTAssetsPickerController *picker = [[CTAssetsPickerController alloc] init];
-    picker.assetsFilter         = [ALAssetsFilter allAssets];
+    if ([@"photos" compare:contentType] == NSOrderedSame) {
+        picker.assetsFilter = [ALAssetsFilter allPhotos];
+    }
+    else if ([@"videos" compare:contentType] == NSOrderedSame) {
+        picker.assetsFilter = [ALAssetsFilter allVideos];
+    }
+    else {
+        picker.assetsFilter = [ALAssetsFilter allAssets];
+    }
+    [picker setContentType:contentType];    
     picker.showsCancelButton    = YES;
     picker.delegate             = self;
     picker.selectedAssets       = selectedAssets;
-    [picker setContentType:contentType];
     self.onPickAssetCompletionBlock = onAssetPicked;
     self.onPickPhotoCompletionBlock = onPhotoPicked;
     
