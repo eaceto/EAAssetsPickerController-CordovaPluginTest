@@ -19,6 +19,7 @@
 @implementation EAAssetPickerHelper
 @synthesize maxNumberOfAssetsToPick;
 @synthesize maxVideoLengthInSeconds;
+@synthesize contentType;
 
 #pragma mark Image and Video
 +(void)takePhoto:(UIViewController*)vc withDelegate:(id<UIImagePickerControllerDelegate, UINavigationControllerDelegate>) delegate {
@@ -56,49 +57,6 @@
     }
 }
 
-/*
-+ (BOOL)base:(UIViewController*)baseVC picker:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    NSString* mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-    
-    BOOL dismissPicker = YES;
-    
-    if (mediaType != nil && [mediaType compare:(NSString*)kUTTypeImage] == NSOrderedSame) {
-        // grabar imagen
-        UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        
-        if (image != nil) {
-            NSNumber *timestamp = [NSNumber numberWithDouble:[NSDate timeIntervalSinceReferenceDate]];
-            NSString  *pngPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/pictureTakenFromCamera%li.png",(long)[timestamp integerValue]]];
-            
-            // Write image to PNG
-            NSData* jpegData = UIImageJPEGRepresentation(image, 0.9);
-            
-            BOOL written = [jpegData writeToFile:pngPath atomically:YES];
-            
-            if (written == YES && pngPath != nil) {
-                NSLog(@"TODO IMPLEMENT");
-            }
-        }
-    }
-    else if (mediaType != nil && (([mediaType compare:(NSString*)kUTTypeVideo] == NSOrderedSame) || ([mediaType compare:(NSString*)kUTTypeMovie] == NSOrderedSame))){
-
-        NSURL *imagePickerURL = [info objectForKey: UIImagePickerControllerMediaURL];
-        NSString* moviePath = [imagePickerURL path];
-        
-        if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
-            if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum (moviePath)) {
-                UISaveVideoAtPathToSavedPhotosAlbum(moviePath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
-            }
-        }
-        else {
-            [EAAssetPickerHelper video:moviePath didFinishSavingWithError:nil contextInfo:nil];
-        }
-    }
-    
-    return dismissPicker;
-}
-*/
-
 + (void)video:(NSString *) videoPath didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo {
     
     if ((videoPath == nil || (videoPath != nil && [@"" compare:videoPath] == NSOrderedSame)) && error == nil) {
@@ -125,8 +83,10 @@
     picker.showsCancelButton    = YES;
     picker.delegate             = self;
     picker.selectedAssets       = selectedAssets;
+    [picker setContentType:contentType];
     self.onPickAssetCompletionBlock = onAssetPicked;
     self.onPickPhotoCompletionBlock = onPhotoPicked;
+    
     
     [vc presentViewController:picker animated:YES completion:^(){
 
@@ -161,10 +121,23 @@
     }
 }
 
+- (BOOL)assetsPickerController:(CTAssetsPickerController *)picker shouldShowAsset:(ALAsset *)asset {
+    if (asset == nil) return NO;
+
+    if ([@"photos" compare:contentType] == NSOrderedSame) {
+        return [asset isPhoto];
+    }
+    
+    if ([@"videos" compare:contentType] == NSOrderedSame) {
+        return [asset isVideo];
+    }
+    
+    return YES;
+}
+
 - (BOOL)assetsPickerController:(CTAssetsPickerController *)picker shouldSelectAsset:(ALAsset *)asset
 {
     // TODO Translate
-    
     if (picker.selectedAssets.count >= maxNumberOfAssetsToPick)
     {
         UIAlertView *alertView =

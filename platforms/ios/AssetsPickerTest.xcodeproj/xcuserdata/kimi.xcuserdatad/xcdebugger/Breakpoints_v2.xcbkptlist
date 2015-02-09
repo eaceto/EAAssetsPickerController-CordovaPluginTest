@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetPickerHelper.m"
-            timestampString = "444927282.907007"
+            timestampString = "445167881.189269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "+recordVideo:withDelegate:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetPickerHelper.m"
-            timestampString = "444927286.368711"
+            timestampString = "445167881.189269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "+takePhoto:withDelegate:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,43 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
-            timestampString = "445098451.190049"
+            timestampString = "445168466.59466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "550"
-            endingLineNumber = "550"
-            landmarkName = "-collectionView:shouldSelectItemAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
-            timestampString = "445098451.190049"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "561"
-            endingLineNumber = "561"
-            landmarkName = "-collectionView:shouldSelectItemAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
-            timestampString = "445098209.715049"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "461"
-            endingLineNumber = "461"
+            startingLineNumber = "491"
+            endingLineNumber = "491"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,27 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetPickerHelper.m"
-            timestampString = "445098451.190049"
+            timestampString = "445167881.189269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "@implementation EAAssetPickerHelper"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetPickerHelper.m"
-            timestampString = "445098451.190049"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
             landmarkName = "+video:didFinishSavingWithError:contextInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetPickerHelper.m"
-            timestampString = "445098451.190049"
+            timestampString = "445167881.189269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-onPickImageAction:withSelectedAssets:onAssetPicked:onPhotoPicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetPickerHelper.m"
-            timestampString = "445098451.190049"
+            timestampString = "445167881.189269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "-onPickImageAction:withSelectedAssets:onAssetPicked:onPhotoPicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
-            timestampString = "445098209.715049"
+            timestampString = "445168466.59466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
+            startingLineNumber = "519"
+            endingLineNumber = "519"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
-            timestampString = "445098209.715049"
+            timestampString = "445168466.59466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "495"
-            endingLineNumber = "495"
+            startingLineNumber = "525"
+            endingLineNumber = "525"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
-            timestampString = "445098209.715049"
+            timestampString = "445168466.59466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "498"
-            endingLineNumber = "498"
+            startingLineNumber = "528"
+            endingLineNumber = "528"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "5">
             <Locations>
@@ -214,28 +166,28 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__78-[CTAssetsViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke262"
+                  symbolName = "__78-[EAAssetsViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke268"
                   moduleName = "AssetsPickerTest"
                   urlString = "file:///Users/kimi/Works/Personal/EAAssetsPickerController-CordovaPluginTest/platforms/ios/AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
-                  timestampString = "445098451.242562"
+                  timestampString = "445168186.075781"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "498"
-                  endingLineNumber = "498"
+                  startingLineNumber = "504"
+                  endingLineNumber = "504"
                   offsetFromSymbolStart = "30">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__78-[CTAssetsViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke_2263"
+                  symbolName = "__78-[EAAssetsViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke_2269"
                   moduleName = "AssetsPickerTest"
                   urlString = "file:///Users/kimi/Works/Personal/EAAssetsPickerController-CordovaPluginTest/platforms/ios/AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
-                  timestampString = "445098451.242709"
+                  timestampString = "445168186.076016"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "498"
-                  endingLineNumber = "498"
+                  startingLineNumber = "504"
+                  endingLineNumber = "504"
                   offsetFromSymbolStart = "6">
                </Location>
             </Locations>
@@ -248,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
-            timestampString = "445098209.715049"
+            timestampString = "445168466.59466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "493"
-            endingLineNumber = "493"
+            startingLineNumber = "523"
+            endingLineNumber = "523"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -264,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
-            timestampString = "445098209.715049"
+            timestampString = "445167881.189269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "-setupAssets"
             landmarkType = "5">
          </BreakpointContent>
@@ -312,11 +264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
-            timestampString = "445098209.715049"
+            timestampString = "445167881.189269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "-setupAssets"
             landmarkType = "5">
          </BreakpointContent>
@@ -344,11 +296,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetPickerHelper.m"
-            timestampString = "445098312.057481"
+            timestampString = "445167881.189269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "+video:didFinishSavingWithError:contextInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -366,6 +318,118 @@
             startingLineNumber = "202"
             endingLineNumber = "202"
             landmarkName = "-setupAssets"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetPicker.m"
+            timestampString = "445165275.544815"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-pickAssets:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetPickerHelper.m"
+            timestampString = "445165925.660824"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-assetsPickerController:shouldShowAsset:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
+            timestampString = "445165994.093693"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-setupAssets"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetsViewController.m"
+            timestampString = "445167956.324907"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "-setupAssets"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/EAAssetPickerHelper.m"
+            timestampString = "445167988.544916"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-onPickImageAction:withSelectedAssets:onAssetPicked:onPhotoPicked:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/CTAssetsGroupViewController.m"
+            timestampString = "445168112.171293"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
+            landmarkName = "-pushDefaultAssetsGroup:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AssetsPickerTest/Plugins/ar.com.ezequielaceto.assetspicker/CTAssetsGroupViewController.m"
+            timestampString = "445168115.771306"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "443"
+            endingLineNumber = "443"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

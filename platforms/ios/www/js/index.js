@@ -52,10 +52,16 @@ var app = {
 };
 
 
-function openGallery() {
+function openGallery(content_type) {
+    
+    if (content_type == null) {
+        content_type = 'all';
+    }
+    
     var params = {
     MaxNumberOfAssetsToPick: 10,
-    MaxVideoLengthInSeconds: 360
+    MaxVideoLengthInSeconds: 360,
+    ContentType: content_type
     };
     
     cordova.exec(function(results) {

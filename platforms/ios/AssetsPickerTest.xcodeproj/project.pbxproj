@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0B0396A7098048BB85F5CDAA /* NSDateFormatter+timeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8301C802C4174A7282E75771 /* NSDateFormatter+timeIntervalFormatter.m */; };
 		1B077C47D9D1419D8CFF2E28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51465C6D4724678835C46D9 /* Images.xcassets */; };

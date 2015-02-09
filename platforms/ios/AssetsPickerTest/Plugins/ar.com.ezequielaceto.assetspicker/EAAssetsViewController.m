@@ -58,7 +58,7 @@ BOOL const allowsMultipleSelection = YES;
 
 
 
-@interface CTAssetsViewController ()
+@interface EAAssetsViewController ()
 
 @property (nonatomic, weak) CTAssetsPickerController *picker;
 @property (nonatomic, strong) NSMutableArray *assets;
@@ -69,8 +69,8 @@ BOOL const allowsMultipleSelection = YES;
 
 
 
-@implementation CTAssetsViewController
-
+@implementation EAAssetsViewController
+@synthesize contentType;
 
 - (id)init
 {
@@ -207,8 +207,14 @@ BOOL const allowsMultipleSelection = YES;
             }];
             
             [self.assets removeAllObjects];
-            [self.assets addObject:CTAssetsViewControllerTakePictureTag];
-            [self.assets addObject:CTAssetsViewControllerRecordVideoTag];
+            
+            if ([@"all" compare:contentType] == NSOrderedSame || [@"photos" compare:contentType] == NSOrderedSame) {
+                [self.assets addObject:CTAssetsViewControllerTakePictureTag];
+            }
+            if ([@"all" compare:contentType] == NSOrderedSame || [@"videos" compare:contentType] == NSOrderedSame) {
+                [self.assets addObject:CTAssetsViewControllerRecordVideoTag];
+            }
+            
             [self.assets addObjectsFromArray:a];
             
             [self reloadData];
@@ -402,17 +408,41 @@ BOOL const allowsMultipleSelection = YES;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0 || indexPath.row == 1)  {
+    if ([@"all" compare:contentType] == NSOrderedSame) {
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            CTAssetsViewCell *cell =
+            [collectionView dequeueReusableCellWithReuseIdentifier:CTAssetsViewCellIdentifier
+                                                      forIndexPath:indexPath];
+            cell.enabled = YES;
+            
+            [cell bindCustomButton:(indexPath.row == 0 ? CTAssetsViewControllerTakePictureTag : CTAssetsViewControllerRecordVideoTag)];
+            
+            return cell;
+        }
+    }
+    else if ([@"photos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
         CTAssetsViewCell *cell =
         [collectionView dequeueReusableCellWithReuseIdentifier:CTAssetsViewCellIdentifier
                                                   forIndexPath:indexPath];
         cell.enabled = YES;
         
-        [cell bindCustomButton:(indexPath.row == 0 ? CTAssetsViewControllerTakePictureTag : CTAssetsViewControllerRecordVideoTag)];
+        [cell bindCustomButton:CTAssetsViewControllerTakePictureTag];
         
         return cell;
     }
-    else {
+    else if ([@"videos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
+        CTAssetsViewCell *cell =
+        [collectionView dequeueReusableCellWithReuseIdentifier:CTAssetsViewCellIdentifier
+                                                  forIndexPath:indexPath];
+        cell.enabled = YES;
+        
+        [cell bindCustomButton:CTAssetsViewControllerRecordVideoTag];
+        
+        return cell;
+    }
+    
+
+    {
         CTAssetsViewCell *cell =
         [collectionView dequeueReusableCellWithReuseIdentifier:CTAssetsViewCellIdentifier
                                                   forIndexPath:indexPath];
@@ -547,7 +577,29 @@ BOOL const allowsMultipleSelection = YES;
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
+    if ([@"all" compare:contentType] == NSOrderedSame) {
+        if (indexPath.row == 0) {
+            BOOL canTakePhoto = YES;
+            if ([self.picker.delegate respondsToSelector:@selector(assetsPickerController:shouldSelectAsset:)])
+                canTakePhoto = [self.picker.delegate assetsPickerController:self.picker shouldSelectAsset:nil];
+            
+            if (canTakePhoto) {
+                [EAAssetPickerHelper takePhoto:self withDelegate:self];
+            }
+            return NO;
+        }
+        if (indexPath.row == 1) {
+            BOOL canRecordVideo = YES;
+            if ([self.picker.delegate respondsToSelector:@selector(assetsPickerController:shouldSelectAsset:)])
+                canRecordVideo = [self.picker.delegate assetsPickerController:self.picker shouldSelectAsset:nil];
+            
+            if (canRecordVideo) {
+                [EAAssetPickerHelper recordVideo:self withDelegate:self];
+            }
+            return NO;
+        }
+    }
+    else if ([@"photos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
         BOOL canTakePhoto = YES;
         if ([self.picker.delegate respondsToSelector:@selector(assetsPickerController:shouldSelectAsset:)])
             canTakePhoto = [self.picker.delegate assetsPickerController:self.picker shouldSelectAsset:nil];
@@ -557,7 +609,7 @@ BOOL const allowsMultipleSelection = YES;
         }
         return NO;
     }
-    if (indexPath.row == 1) {
+    else if ([@"videos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
         BOOL canRecordVideo = YES;
         if ([self.picker.delegate respondsToSelector:@selector(assetsPickerController:shouldSelectAsset:)])
             canRecordVideo = [self.picker.delegate assetsPickerController:self.picker shouldSelectAsset:nil];
@@ -582,8 +634,15 @@ BOOL const allowsMultipleSelection = YES;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0 || indexPath.row == 1) {
-        // TODO
+    if ([@"all" compare:contentType] == NSOrderedSame) {
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            return;
+        }
+    }
+    else if ([@"photos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
+        return;
+    }
+    else if ([@"videos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
         return;
     }
     
@@ -597,9 +656,19 @@ BOOL const allowsMultipleSelection = YES;
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0 || indexPath.row == 1) {
+    
+    if ([@"all" compare:contentType] == NSOrderedSame) {
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            return YES;
+        }
+    }
+    else if ([@"photos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
         return YES;
     }
+    else if ([@"videos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
+        return YES;
+    }
+    
     
     ALAsset *asset = [self.assets objectAtIndex:indexPath.row];
     
@@ -611,7 +680,15 @@ BOOL const allowsMultipleSelection = YES;
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0 || indexPath.row == 1) {
+    if ([@"all" compare:contentType] == NSOrderedSame) {
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            return;
+        }
+    }
+    else if ([@"photos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
+        return;
+    }
+    else if ([@"videos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
         return;
     }
     
@@ -625,9 +702,18 @@ BOOL const allowsMultipleSelection = YES;
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0 || indexPath.row == 1) {
+    if ([@"all" compare:contentType] == NSOrderedSame) {
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            return YES;
+        }
+    }
+    else if ([@"photos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
         return YES;
     }
+    else if ([@"videos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
+        return YES;
+    }
+
     
     ALAsset *asset = [self.assets objectAtIndex:indexPath.row];
     
@@ -639,7 +725,15 @@ BOOL const allowsMultipleSelection = YES;
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0 || indexPath.row == 1) {
+    if ([@"all" compare:contentType] == NSOrderedSame) {
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            return;
+        }
+    }
+    else if ([@"photos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
+        return;
+    }
+    else if ([@"videos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
         return;
     }
     
@@ -651,7 +745,15 @@ BOOL const allowsMultipleSelection = YES;
 
 - (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0 || indexPath.row == 1) {
+    if ([@"all" compare:contentType] == NSOrderedSame) {
+        if (indexPath.row == 0 || indexPath.row == 1) {
+            return;
+        }
+    }
+    else if ([@"photos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
+        return;
+    }
+    else if ([@"videos" compare:contentType] == NSOrderedSame && indexPath.row == 0) {
         return;
     }
     

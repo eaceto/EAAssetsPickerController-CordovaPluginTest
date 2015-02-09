@@ -100,6 +100,12 @@
 
 
 /**
+ * Content type to accept and show.
+ * "all", "photos" and "videos"
+ */
+@property (nonatomic, strong) NSString* contentType;
+
+/**
  *  @name Managing Selections
  */
 

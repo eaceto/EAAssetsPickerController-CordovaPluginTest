@@ -37,6 +37,11 @@
         maximumVideoLength = [[options objectForKey:@"MaxVideoLengthInSeconds"] integerValue];
     }
     
+    NSString* contentType = @"all";
+    if (options && [options objectForKey:@"ContentType"]) {
+        contentType = [options objectForKey:@"ContentType"];
+    }
+    
     self.callbackId = command.callbackId;
     
     if (self.helper == nil) {
@@ -45,6 +50,7 @@
     
     [self.helper setMaxVideoLengthInSeconds:(int)maximumVideoLength];
     [self.helper setMaxNumberOfAssetsToPick:(int)maximumImagesCount];
+    [self.helper setContentType:contentType];
     
     [self.helper onPickImageAction:self.viewController
                 withSelectedAssets:nil
