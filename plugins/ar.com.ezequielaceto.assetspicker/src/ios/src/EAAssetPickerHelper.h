@@ -26,7 +26,7 @@ typedef  void(^HelperPickPhotoCompletionBlock)(NSString* photoPath);
 
 +(void)recordVideo:(UIViewController*)vc withDelegate:(id<UIImagePickerControllerDelegate>) delegate;
 +(void)takePhoto:(UIViewController*)vc withDelegate:(id<UIImagePickerControllerDelegate>) delegate;
-+(BOOL)base:(UIViewController*)vc picker:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info;
+//+(BOOL)base:(UIViewController*)vc picker:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info;
 
 
 @end
