@@ -82,9 +82,27 @@
                                          }
                                      }
                                  }
+                                 else if ([asset isVideo]) {
+                                     ALAssetRepresentation *rep = [asset defaultRepresentation];
+                                     
+                                     if (rep) {
+                                         Byte *buffer = (Byte*)malloc(rep.size);
+                                         NSUInteger buffered = [rep getBytes:buffer fromOffset:0.0 length:rep.size error:nil];
+                                         NSData *data = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];
+                                         
+                                         NSString  *videoPath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/videoTakenFromCamera%li-%i.mov",(long)[timestamp integerValue],(int)i]];
+                                         
+                                         
+                                         BOOL written = [data writeToFile:videoPath atomically:YES];
+                                         
+                                         if (written == YES && videoPath != nil) {
+                                             [resultStrings addObject:videoPath];
+                                             i++;
+                                         }
+                                     }
+                                 }
                              }
-                             
-                             
+
                              result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:resultStrings];
                          }
                          else {
