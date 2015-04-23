@@ -1,0 +1,15 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "ar.com.ezequielaceto.assetspicker": {
+            "PACKAGE_NAME": "com.ezequielaceto.cordova.assetspicker.test"
+        }
+    },
+    "dependent_plugins": {}
+}
