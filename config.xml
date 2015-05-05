@@ -13,5 +13,7 @@
     <feature name="EAAssetPicker">
         <param name="ios-package" value="EAAssetPicker" />
         <param name="onload" value="true"/>
-    </feature>
+	<param name="android-package" value="com.ezequielaceto.cordova.assetspicker.EAAssetPicker" /> 
+   </feature>
+
 </widget>

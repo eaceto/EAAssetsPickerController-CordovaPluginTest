@@ -1,0 +1,8 @@
+{
+    "ar.com.ezequielaceto.assetspicker": {
+        "source": {
+            "type": "local",
+            "path": "../EAAssetsPickerController-CordovaPlugin/plugin"
+        }
+    }
+}
