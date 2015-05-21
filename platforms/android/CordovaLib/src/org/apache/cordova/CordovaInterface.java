@@ -21,8 +21,6 @@ package org.apache.cordova;
 import android.app.Activity;
 import android.content.Intent;
 
-import org.apache.cordova.CordovaPlugin;
-
 import java.util.concurrent.ExecutorService;
 
 /**

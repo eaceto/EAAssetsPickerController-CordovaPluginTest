@@ -32,16 +32,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
-
-import org.apache.cordova.CordovaBridge;
-import org.apache.cordova.CordovaInterface;
-import org.apache.cordova.CordovaPreferences;
-import org.apache.cordova.CordovaResourceApi;
-import org.apache.cordova.CordovaWebView;
-import org.apache.cordova.CordovaWebViewEngine;
-import org.apache.cordova.ICordovaCookieManager;
-import org.apache.cordova.NativeToJsMessageQueue;
-import org.apache.cordova.PluginManager;
+import org.apache.cordova.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

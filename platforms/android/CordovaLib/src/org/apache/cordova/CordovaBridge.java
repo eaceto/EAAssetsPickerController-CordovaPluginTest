@@ -18,12 +18,11 @@
 */
 package org.apache.cordova;
 
-import java.security.SecureRandom;
-
+import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import android.util.Log;
+import java.security.SecureRandom;
 
 /**
  * Contains APIs that the JS can call. All functions in here should also have

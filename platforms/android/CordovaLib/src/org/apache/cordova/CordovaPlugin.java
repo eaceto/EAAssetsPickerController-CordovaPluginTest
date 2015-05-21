@@ -18,16 +18,11 @@
 */
 package org.apache.cordova;
 
-import org.apache.cordova.CordovaArgs;
-import org.apache.cordova.CordovaWebView;
-import org.apache.cordova.CordovaInterface;
-import org.apache.cordova.CallbackContext;
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

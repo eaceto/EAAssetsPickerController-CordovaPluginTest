@@ -18,10 +18,10 @@
 */
 package org.apache.cordova;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
-
-import android.util.Log;
 
 /**
  * Holds the list of messages to be sent to the WebView.

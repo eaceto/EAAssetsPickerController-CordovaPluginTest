@@ -19,7 +19,6 @@
 package org.apache.cordova.engine;
 
 import android.webkit.JavascriptInterface;
-
 import org.apache.cordova.CordovaBridge;
 import org.apache.cordova.ExposedJsApi;
 import org.json.JSONException;

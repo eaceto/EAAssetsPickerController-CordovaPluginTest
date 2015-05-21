@@ -18,16 +18,15 @@
  */
 package org.apache.cordova;
 
-import java.util.Collection;
-import java.util.LinkedHashMap;
-
-import org.json.JSONException;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Debug;
 import android.util.Log;
+import org.json.JSONException;
+
+import java.util.Collection;
+import java.util.LinkedHashMap;
 
 /**
  * PluginManager is exposed to JavaScript in the Cordova WebView.

@@ -22,7 +22,6 @@ package org.apache.cordova.engine;
 import android.os.Build;
 import android.webkit.CookieManager;
 import android.webkit.WebView;
-
 import org.apache.cordova.ICordovaCookieManager;
 
 class SystemCookieManager implements ICordovaCookieManager {

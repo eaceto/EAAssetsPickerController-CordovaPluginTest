@@ -26,19 +26,8 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
-import android.webkit.ClientCertRequest;
-import android.webkit.HttpAuthHandler;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-
-import org.apache.cordova.AuthenticationToken;
-import org.apache.cordova.CordovaClientCertRequest;
-import org.apache.cordova.CordovaHttpAuthHandler;
-import org.apache.cordova.CordovaResourceApi;
-import org.apache.cordova.LOG;
-import org.apache.cordova.PluginManager;
+import android.webkit.*;
+import org.apache.cordova.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
