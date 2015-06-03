@@ -58,6 +58,7 @@
 
 
 @implementation CTAssetsGroupViewController
+@synthesize contentType;
 
 - (id)init
 {
@@ -78,6 +79,10 @@
     [self setupToolbar];
     [self localize];
     [self setupGroup];
+    
+    if (contentType == nil) {
+        contentType = self.picker.contentType;
+    }
 }
 
 - (void)dealloc
@@ -364,9 +369,9 @@
 {
     if (group)
     {
-        CTAssetsViewController *vc = [[CTAssetsViewController alloc] init];
+        EAAssetsViewController *vc = [[EAAssetsViewController alloc] init];
         vc.assetsGroup = group;
-        
+        [vc setContentType:self.contentType];
         self.navigationController.viewControllers = @[self, vc];
     }
 }
@@ -433,9 +438,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CTAssetsViewController *vc = [[CTAssetsViewController alloc] init];
+    EAAssetsViewController *vc = [[EAAssetsViewController alloc] init];
     vc.assetsGroup = [self.groups objectAtIndex:indexPath.row];
-    
+    [vc setContentType:self.contentType];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

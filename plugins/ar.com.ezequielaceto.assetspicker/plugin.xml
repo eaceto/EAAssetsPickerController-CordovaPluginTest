@@ -20,10 +20,28 @@
         <clobbers target="plugins.assetPicker" />
     </js-module>
     
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="EAAssetPicker">
+                <param name="android-package" value="com.ezequielaceto.android.EAAssetPicker"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />            
+            <uses-permission android:name="android.permission.CAMERA" />
+        </config-file>
+
+		<source-file src="src/android/com/ezequielaceto/android/EAAssetPicker.java" target-dir="src/com/ezequielaceto/android" />
+        
+    </platform>
+    
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="ImagePicker">
+            <feature name="EAAssetPicker">
                 <param name="ios-package" value="EAAssetPicker"/>
             </feature>
         </config-file>
@@ -81,6 +99,9 @@
         <header-file src="src/ios/src/NSDateFormatter+timeIntervalFormatter.h" />
         <source-file src="src/ios/src/NSDateFormatter+timeIntervalFormatter.m" />
         
+        <header-file src="src/ios/src/ALAssetsLibrary+CustomPhotoAlbum.h" />
+        <source-file src="src/ios/src/ALAssetsLibrary+CustomPhotoAlbum.m" />
+
         <resource-file src="src/ios/Images.xcassets" />
         <resource-file src="src/ios/photo_camera_icon.png" />
         <resource-file src="src/ios/photo_camera_icon@2x.png" />

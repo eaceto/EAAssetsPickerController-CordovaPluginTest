@@ -1,8 +1,11 @@
 {
     "ar.com.ezequielaceto.assetspicker": {
         "source": {
-            "type": "local",
-            "path": "../EAAssetsPickerController-CordovaPlugin/plugin"
-        }
+            "type": "git",
+            "url": "https://github.com/eaceto/EAAssetsPickerController-CordovaPlugin.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

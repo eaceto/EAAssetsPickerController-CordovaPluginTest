@@ -67,8 +67,9 @@
     self.textLabel.text         = [assetsGroup valueForProperty:ALAssetsGroupPropertyName];
     self.accessoryType          = UITableViewCellAccessoryDisclosureIndicator;
     
-    if (showNumberOfAssets)
+    if (showNumberOfAssets) {
         self.detailTextLabel.text = [NSString stringWithFormat:@"%ld", (long)assetsGroup.numberOfAssets];
+    }
 }
 
 

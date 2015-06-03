@@ -54,7 +54,7 @@
     
     if (self.operation == UINavigationControllerOperationPush)
     {
-        CTAssetsViewController *fromVC      = (CTAssetsViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+        EAAssetsViewController *fromVC      = (EAAssetsViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
         CTAssetsPageViewController *toVC    = (CTAssetsPageViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
         NSIndexPath *indexPath              = [NSIndexPath indexPathForItem:toVC.pageIndex inSection:0];
         
@@ -119,7 +119,7 @@
     else
     {
         CTAssetsPageViewController *fromVC  = (CTAssetsPageViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-        CTAssetsViewController *toVC        = (CTAssetsViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+        EAAssetsViewController *toVC        = (EAAssetsViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
         NSIndexPath *indexPath              = [NSIndexPath indexPathForItem:fromVC.pageIndex inSection:0];
         
         // Scroll to index path

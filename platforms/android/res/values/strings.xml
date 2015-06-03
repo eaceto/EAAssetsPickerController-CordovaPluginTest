@@ -3,11 +3,9 @@
     <string name="app_name">AssetsPickerTest</string>
     <string name="launcher_name">@string/app_name</string>
     <string name="activity_name">@string/launcher_name</string>
-
-
     <plurals name="media_selected">
-        <item quantity="other"></item>
-        <item quantity="one"></item>
-        <item quantity="many"></item>
+        <item quantity="other" />
+        <item quantity="one" />
+        <item quantity="many" />
     </plurals>
 </resources>

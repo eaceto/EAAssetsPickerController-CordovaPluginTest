@@ -19,7 +19,7 @@ typedef  void(^HelperPickPhotoCompletionBlock)(NSString* photoPath);
 
 @property (nonatomic) int maxNumberOfAssetsToPick;
 @property (nonatomic) int maxVideoLengthInSeconds;
-
+@property (nonatomic, strong) NSString* contentType;
 
 -(void)onPickImageAction:(UIViewController*)vc withSelectedAssets:(NSMutableArray*)selectedAssets onAssetPicked:(HelperPickAssetCompletionBlock) onAssetPicked onPhotoPicked:(HelperPickPhotoCompletionBlock) onPhotoPicked;
 

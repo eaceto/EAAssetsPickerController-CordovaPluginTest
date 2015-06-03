@@ -38,7 +38,7 @@
                     "/*": [
                         {
                             "xml": "<feature name=\"EAAssetPicker\"><param name=\"ios-package\" value=\"EAAssetPicker\" /></feature>",
-                            "count": 1
+                            "count": 2
                         }
                     ]
                 }
@@ -47,7 +47,7 @@
     },
     "installed_plugins": {
         "ar.com.ezequielaceto.assetspicker": {
-            "PACKAGE_NAME": "ar.com.ezequielaceto.assetspicker"
+            "PACKAGE_NAME": "com.ezequielaceto.cordova.assetspicker.test"
         }
     },
     "dependent_plugins": {}

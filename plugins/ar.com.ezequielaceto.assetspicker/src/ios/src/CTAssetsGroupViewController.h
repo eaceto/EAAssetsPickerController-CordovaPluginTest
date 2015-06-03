@@ -31,4 +31,6 @@
 
 @interface CTAssetsGroupViewController : UITableViewController
 
+@property (nonatomic, strong) NSString* contentType;
+
 @end

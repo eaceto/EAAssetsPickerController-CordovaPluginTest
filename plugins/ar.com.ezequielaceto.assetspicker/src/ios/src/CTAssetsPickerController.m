@@ -40,6 +40,7 @@ NSString * const CTAssetsPickerSelectedAssetsChangedNotification = @"CTAssetsPic
 @end
 
 @implementation CTAssetsPickerController
+@synthesize contentType;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,6 +52,7 @@ NSString * const CTAssetsPickerSelectedAssetsChangedNotification = @"CTAssetsPic
         _showsCancelButton      = YES;
         _showsNumberOfAssets    = YES;
         _alwaysEnableDoneButton = NO;
+        //self.contentType        = @"all";
         
         self.preferredContentSize = CTAssetPickerPopoverContentSize;
         
@@ -74,6 +76,7 @@ NSString * const CTAssetsPickerSelectedAssetsChangedNotification = @"CTAssetsPic
 - (void)setupNavigationController
 {
     CTAssetsGroupViewController *vc = [[CTAssetsGroupViewController alloc] init];
+    [vc setContentType:self.contentType];
     UINavigationController *nav = [[self createChildNavigationController] initWithRootViewController:vc];
     nav.delegate = self;
     

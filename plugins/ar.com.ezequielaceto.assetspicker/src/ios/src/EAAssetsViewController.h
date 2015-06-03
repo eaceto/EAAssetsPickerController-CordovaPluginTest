@@ -30,8 +30,9 @@
 
 
 
-@interface CTAssetsViewController : UICollectionViewController<UIImagePickerControllerDelegate>
+@interface EAAssetsViewController : UICollectionViewController<UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) ALAssetsGroup *assetsGroup;
+@property (nonatomic, strong) NSString* contentType;
 
 @end
